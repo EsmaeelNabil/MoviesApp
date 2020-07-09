@@ -1,21 +1,18 @@
 package com.esmaeel.moviesapp.Utils
 
-import android.app.Activity
-import android.app.Dialog
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.view.LayoutInflater
-import android.view.WindowManager
 import com.esmaeel.moviesapp.data.models.ErrorModel
-import com.esmaeel.moviesapp.databinding.LoaderLayoutBinding
+import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.PrettyFormatStrategy
 import okhttp3.Request
 import okhttp3.ResponseBody
+import java.util.*
 
 
 object MyUtils {
@@ -76,7 +73,19 @@ object MyUtils {
 
     }
 
-    fun getLoader(
+    // TODO: 7/9/20 test this
+    fun getAtleastFiveOf(knownFor: ArrayList<PopularPersonsResponse.Result.KnownFor?>?): String {
+        var knownForString = ""
+        knownFor?.let {
+            it.forEachIndexed { index, knownFor ->
+                if (index < 5)
+                    knownForString += " ${knownFor?.original_name}"
+            }
+        }
+        return knownForString
+    }
+
+/*    fun getLoader(
         activity: Activity
     ): Dialog? {
         val dialog = Dialog(activity)
@@ -86,6 +95,6 @@ object MyUtils {
         dialog.getWindow()!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.getWindow()!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         return dialog
-    }
+    }*/
 
 }

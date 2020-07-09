@@ -24,19 +24,18 @@ import javax.inject.Singleton
 object NetworkModule {
 
 
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class BaseUrl
-
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class API_KEY
 
 
     @Provides
     @Singleton
     @BaseUrl
     fun provideBaseUrl(): String = "https://api.themoviedb.org/3/"
+
+
+    @Provides
+    @Singleton
+    @PROFILE_IMAGE_BASE_URL
+    fun provideProfileBaseUrl(): String = "https://image.tmdb.org/t/p/w185"
 
     @Provides
     @Singleton

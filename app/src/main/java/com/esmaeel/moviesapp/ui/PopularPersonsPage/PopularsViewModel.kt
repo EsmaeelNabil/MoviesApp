@@ -1,4 +1,4 @@
-package com.esmaeel.moviesapp.views.PopularPersonsPage
+package com.esmaeel.moviesapp.ui.PopularPersonsPage
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

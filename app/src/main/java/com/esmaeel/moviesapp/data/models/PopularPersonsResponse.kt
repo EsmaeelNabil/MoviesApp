@@ -7,7 +7,7 @@ data class PopularPersonsResponse(
     val total_results: Int? = 0
 ) {
     fun hasMorePages(): Boolean {
-        return page!! >= total_pages!!;
+        return page!! < total_pages!!;
     }
 
     data class Result(
@@ -37,7 +37,7 @@ data class PopularPersonsResponse(
             val release_date: String? = "",
             val title: String? = "",
             val video: Boolean? = false,
-            val vote_average: Int? = 0,
+            val vote_average: Double? = 0.0,
             val vote_count: Int? = 0
         )
     }

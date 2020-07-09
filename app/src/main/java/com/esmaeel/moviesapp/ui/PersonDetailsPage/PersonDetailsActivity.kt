@@ -1,4 +1,4 @@
-package com.esmaeel.moviesapp.views.PersonDetailsPage
+package com.esmaeel.moviesapp.ui.PersonDetailsPage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

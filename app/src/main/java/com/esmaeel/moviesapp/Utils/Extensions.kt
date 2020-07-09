@@ -4,11 +4,45 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import com.google.android.material.snackbar.Snackbar
 
+
+fun combineClickListeners(vararg views: View, function: () -> Unit) {
+    views.forEach {
+        it.setOnClickListener {
+            function.invoke()
+        }
+    }
+}
+
+fun TextView.GoneIfEmpty() {
+    print("FUCK" + this.text.toString())
+    if (this.text.toString().isNullOrEmpty())
+        this.Gone()
+}
+
+fun View.Gone() {
+    this.visibility = View.GONE
+}
+
+fun View.Visible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.Hide() {
+    this.visibility = View.INVISIBLE
+}
 
 fun String.isJson(): Boolean {
     return this.startsWith("{") || this.startsWith("[")
+}
+
+fun String?.buildProfilePath(base: String?): String {
+    print("$base$this")
+    return "$base$this"
 }
 
 fun doSafely(success: () -> Unit, error: (message: String?) -> Unit) {
@@ -18,6 +52,14 @@ fun doSafely(success: () -> Unit, error: (message: String?) -> Unit) {
         error(e.localizedMessage)
     }
 }
+
+
+fun FragmentActivity.showSnackMessage(message: String?, view: View) =
+    message?.let {
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
+    }
+
+
 
 fun FragmentActivity.isNetworkAvailable(): Boolean {
     if (applicationContext == null) return false

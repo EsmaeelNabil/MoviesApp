@@ -1,4 +1,4 @@
-package com.esmaeel.moviesapp.views.PopularPersonsPage
+package com.esmaeel.moviesapp.ui.PopularPersonsPage
 
 import com.esmaeel.moviesapp.Utils.Contract
 import com.esmaeel.moviesapp.Utils.MyUtils
@@ -13,7 +13,7 @@ class PopularsRepository @Inject constructor(
     fun getPersonsData(pageNumber: Int = 0) = flow {
         emit(Contract.onLoading(data = null))
         try {
-            val response = mService.getPopularMovies(pageNumber = pageNumber)
+            val response = mService.getPopularPersons(pageNumber = pageNumber)
 
             if (response.isSuccessful) {
                 emit(Contract.onSuccess(data = response.body()))

@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.PersonDetailsPage.PersonDetailsActivity"></activity>
-        <activity android:name=".views.PopularPersonsPage.PopularPersonsActivity">
+        <activity android:name=".ui.PersonDetailsPage.PersonDetailsActivity"></activity>
+        <activity android:name=".ui.PopularPersonsPage.PopularPersonsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
