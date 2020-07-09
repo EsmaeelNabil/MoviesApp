@@ -3,7 +3,6 @@ package com.esmaeel.moviesapp.di
 import com.esmaeel.moviesapp.BuildConfig
 import com.esmaeel.moviesapp.Utils.Constants
 import com.esmaeel.moviesapp.Utils.MyUtils
-import com.esmaeel.moviesapp.Utils.isJson
 import com.esmaeel.moviesapp.data.remote.MoviesNetworkService
 import com.google.gson.Gson
 import com.orhanobut.logger.Logger
@@ -70,7 +69,7 @@ object NetworkModule {
         return if (BuildConfig.DEBUG) HttpLoggingInterceptor(object :
             HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
-                if (message.isJson())
+                if (message.startsWith("{") || message.startsWith("["))
                     Logger.t(Constants.JR).json(message)
                 else Logger.t(Constants.OK_HTTP_MESSAGE_LOGGER).i(message)
             }
