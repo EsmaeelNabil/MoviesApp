@@ -11,9 +11,9 @@ This App shows an infinite list of popular persons in the tv industry and some b
 
 ## Built with
   - Kotlin
-  - Dagger-Hilt for dependency injection
+  - [Dagger-Hilt for dependency injection](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/main/java/com/esmaeel/moviesapp/di) -- [Docs](https://dagger.dev/hilt/)
   - MVVM architectural pattern
-  - Retrofit + okHttp3
+  - [Retrofit + OkHttp](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/di/NetworkModule.kt)
   - Coroutines + Flow
   - LiveData - ViewModels
   - [Kotlin Extension Functions](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/Utils/Extensions.kt)
