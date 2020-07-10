@@ -104,7 +104,9 @@ class PopularPersonsActivity : AppCompatActivity() {
     }
 
     private fun bindDataToUi(data: PopularPersonsResponse?) {
+
         data?.let {
+            UiTestUtils.waiT()
             hasMorePages = data.hasMorePages()
 
             if (!personsList.isNullOrEmpty())
@@ -112,8 +114,20 @@ class PopularPersonsActivity : AppCompatActivity() {
             else personsList =
                 data.results
 
-            popularPersonsAdapter.submitList(personsList)
+            /*
+            *  this is for the DiffUtil because it calculates
+            * the differences in the background thread and may take time.
+            * so we make a call back to tell Espresso to stop waiting
+            * */
+
+            val dataBindedCallBack = Runnable {
+                UiTestUtils.release()
+            }
+
+            popularPersonsAdapter.submitList(personsList, dataBindedCallBack)
+
         }
+
     }
 
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esmaeel.moviesapp.Utils.Contract
+import com.esmaeel.moviesapp.Utils.UiTestUtils
 import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -23,11 +24,15 @@ class PopularsViewModel @ViewModelInject constructor(
 
 
     fun getPersonsData(pageNumber: Int) {
+        // make the Espresso ui test wait for this request
+        UiTestUtils.waiT()
         viewModelScope.launch {
             repository.getPersonsData(pageNumber = pageNumber)
                 .flowOn(Dispatchers.IO)
                 .collect { data ->
                     _personsData.value = data
+                    // tells espresso to stop waiting
+                    UiTestUtils.release()
                 }
         }
     }

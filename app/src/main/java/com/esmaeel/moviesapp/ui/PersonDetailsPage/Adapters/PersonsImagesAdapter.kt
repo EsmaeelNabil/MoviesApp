@@ -18,7 +18,7 @@ import javax.inject.Inject
 class PersonsImagesAdapter @Inject constructor(
     @PROFILE_IMAGE_BASE_URL val profileImageBaseUrl: String
 ) :
-    ListAdapter<PersonsImagesResponse.Profile, PersonsImagesAdapter.PersonHolder>(
+    ListAdapter<PersonsImagesResponse.Profile, PersonsImagesAdapter.ImageHolder>(
         PopularPersonsDiffUtil
     ) {
 
@@ -38,8 +38,8 @@ class PersonsImagesAdapter @Inject constructor(
         ) = oldItem.file_path == newItem.file_path
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonHolder {
-        return PersonHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
+        return ImageHolder(
             PersonImagesRecyclerItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -48,12 +48,12 @@ class PersonsImagesAdapter @Inject constructor(
         )
     }
 
-    override fun onBindViewHolder(holder: PersonHolder, position: Int) {
+    override fun onBindViewHolder(holder: ImageHolder, position: Int) {
         holder.bindViews(getItem(position))
     }
 
 
-    inner class PersonHolder(val binder: PersonImagesRecyclerItemBinding) :
+    inner class ImageHolder(val binder: PersonImagesRecyclerItemBinding) :
         RecyclerView.ViewHolder(binder.root) {
         fun bindViews(item: PersonsImagesResponse.Profile) {
             binder.image.load(item.file_path?.buildProfilePath(profileImageBaseUrl))
