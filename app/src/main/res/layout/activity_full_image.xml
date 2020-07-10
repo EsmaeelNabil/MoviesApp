@@ -13,6 +13,7 @@
         android:layout_height="match_parent" />
 
     <ImageButton
+        android:layout_marginTop="16dp"
         android:id="@+id/saveImage"
         style="@style/Widget.AppCompat.ActionButton"
         android:layout_width="wrap_content"
