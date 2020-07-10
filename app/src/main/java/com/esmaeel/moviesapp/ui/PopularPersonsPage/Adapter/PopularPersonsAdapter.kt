@@ -11,6 +11,7 @@ import com.esmaeel.moviesapp.Utils.ViewEventsContract
 import com.esmaeel.moviesapp.Utils.buildProfilePath
 import com.esmaeel.moviesapp.Utils.combineClickListeners
 import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
+import com.esmaeel.moviesapp.data.models.Results
 import com.esmaeel.moviesapp.databinding.PersonRecyclerItemBinding
 import com.esmaeel.moviesapp.di.PROFILE_IMAGE_BASE_URL
 import javax.inject.Inject
@@ -18,23 +19,23 @@ import javax.inject.Inject
 class PopularPersonsAdapter @Inject constructor(
     @PROFILE_IMAGE_BASE_URL val profileImageBaseUrl: String
 ) :
-    ListAdapter<PopularPersonsResponse.Result, PopularPersonsAdapter.PersonHolder>(
+    ListAdapter<Results, PopularPersonsAdapter.PersonHolder>(
         PopularPersonsDiffUtil
     ) {
 
-    val clickEvent: MutableLiveData<ViewEventsContract<PopularPersonsResponse.Result>> =
+    val clickEvent: MutableLiveData<ViewEventsContract<Results>> =
         MutableLiveData()
 
     private object PopularPersonsDiffUtil :
-        DiffUtil.ItemCallback<PopularPersonsResponse.Result>() {
+        DiffUtil.ItemCallback<Results>() {
         override fun areItemsTheSame(
-            oldItem: PopularPersonsResponse.Result,
-            newItem: PopularPersonsResponse.Result
+            oldItem: Results,
+            newItem: Results
         ) = oldItem == newItem
 
         override fun areContentsTheSame(
-            oldItem: PopularPersonsResponse.Result,
-            newItem: PopularPersonsResponse.Result
+            oldItem: Results,
+            newItem: Results
         ) = oldItem.id == newItem.id
     }
 
@@ -55,7 +56,7 @@ class PopularPersonsAdapter @Inject constructor(
 
     inner class PersonHolder(val binder: PersonRecyclerItemBinding) :
         RecyclerView.ViewHolder(binder.root) {
-        fun bindViews(item: PopularPersonsResponse.Result) {
+        fun bindViews(item: Results) {
 
 
             binder.personImage.load(item.profile_path?.buildProfilePath(profileImageBaseUrl))

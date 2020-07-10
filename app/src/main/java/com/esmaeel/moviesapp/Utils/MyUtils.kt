@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import com.esmaeel.moviesapp.data.models.ErrorModel
-import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
+import com.esmaeel.moviesapp.data.models.KnownFor
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.orhanobut.logger.FormatStrategy
@@ -13,7 +13,6 @@ import com.orhanobut.logger.PrettyFormatStrategy
 import okhttp3.Request
 import okhttp3.ResponseBody
 import timber.log.Timber
-import java.util.*
 
 
 object MyUtils {
@@ -74,18 +73,24 @@ object MyUtils {
 
     }
 
-    // TODO: 7/9/20 test this
-    fun getKnownFor(knownFor: ArrayList<PopularPersonsResponse.Result.KnownFor?>?): String {
-        var knownForString = "Known For : "
+    /*
+    *  takes a list of known for objects
+    * returns the known for string key if array is not null and contains titles
+    * returns empty string if null or empty
+    * */
+    fun getKnownFor(knownFor: ArrayList<KnownFor?>?): String {
+        var knownForString = Constants.KNOWN_FOR
         knownFor?.let {
             it.forEach { knownFor ->
                 if (knownFor?.original_title?.isNotEmpty()!!)
-                    knownForString += "${knownFor?.original_title}, "
+                    knownForString += "${knownFor.original_title}, "
             }
         }
 
         Timber.e(knownForString)
-        return knownForString.dropLast(2)
+        return if (knownForString == Constants.KNOWN_FOR){
+            ""
+        }else knownForString.dropLast(2)
     }
 
 

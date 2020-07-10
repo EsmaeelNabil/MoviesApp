@@ -1,6 +1,8 @@
 package com.esmaeel.moviesapp.Utils
 
 object Constants {
+    val KNOWN_FOR: String = "Known For : "
+    val EMPTY_STRING: String = ""
     val ALBUM_NAME: String = "Saved Images"
     val IMAGE_PATH: String = "IMAGE_PATH"
     val PERSON_DATA: String = "PERSON_DATA";

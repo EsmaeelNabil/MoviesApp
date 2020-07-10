@@ -12,7 +12,7 @@ import coil.api.load
 import com.esmaeel.moviesapp.R
 import com.esmaeel.moviesapp.Utils.*
 import com.esmaeel.moviesapp.data.models.PersonsImagesResponse
-import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
+import com.esmaeel.moviesapp.data.models.Results
 import com.esmaeel.moviesapp.databinding.ActivityPersonDetailsBinding
 import com.esmaeel.moviesapp.di.IMAGES_ADAPTER
 import com.esmaeel.moviesapp.di.PROFILE_IMAGE_BASE_URL
@@ -39,11 +39,8 @@ class PersonDetailsActivity : AppCompatActivity() {
         binder = ActivityPersonDetailsBinding.inflate(layoutInflater)
         setContentView(binder.root)
 
-
         initViews()
         initData()
-
-
     }
 
     private fun initViews() {
@@ -89,7 +86,7 @@ class PersonDetailsActivity : AppCompatActivity() {
 
         intent.extras?.let { bundle ->
             val person =
-                bundle.getSerializable(Constants.PERSON_DATA) as PopularPersonsResponse.Result
+                bundle.getSerializable(Constants.PERSON_DATA) as Results
             person?.let { personn ->
                 bindPersonInfo(personn)
                 personn.id?.let { personId -> getPersonsImages(personId) }
@@ -119,7 +116,7 @@ class PersonDetailsActivity : AppCompatActivity() {
         else showSnackMessage(getString(R.string.network_error), binder.root)
     }
 
-    private fun bindPersonInfo(person: PopularPersonsResponse.Result) {
+    private fun bindPersonInfo(person: Results) {
         binder.personImage.load(person.profile_path.buildProfilePath(ProfileBaseUrl))
         binder.name.text = person.name
         binder.department.text = person.known_for_department
@@ -130,7 +127,7 @@ class PersonDetailsActivity : AppCompatActivity() {
     companion object {
         fun startActivity(
             context: Context,
-            person: PopularPersonsResponse.Result
+            person: Results
         ) {
             val intent = Intent(context, PersonDetailsActivity::class.java)
             val bundle = Bundle().also {

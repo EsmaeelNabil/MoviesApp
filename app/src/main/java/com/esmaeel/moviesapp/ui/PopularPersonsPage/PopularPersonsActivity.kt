@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.esmaeel.moviesapp.R
 import com.esmaeel.moviesapp.Utils.*
 import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
+import com.esmaeel.moviesapp.data.models.Results
 import com.esmaeel.moviesapp.databinding.ActivityPopularPersonsBinding
 import com.esmaeel.moviesapp.di.POPULAR_ADAPTER
 import com.esmaeel.moviesapp.ui.PersonDetailsPage.PersonDetailsActivity
@@ -26,7 +27,7 @@ class PopularPersonsActivity : AppCompatActivity() {
     private val viewModel: PopularsViewModel by viewModels()
     private lateinit var binder: ActivityPopularPersonsBinding
     private lateinit var paginationListener: EndlessRecyclerOnScrollListener
-    private var personsList: MutableList<PopularPersonsResponse.Result?>? = null
+    private var personsList: MutableList<Results?>? = null
     private var pageNumber = Constants.FirstPage
     private var hasMorePages: Boolean = true
 
@@ -106,7 +107,9 @@ class PopularPersonsActivity : AppCompatActivity() {
         data?.let {
             hasMorePages = data.hasMorePages()
 
-            if (!personsList.isNullOrEmpty()) personsList!!.addAll(data.results!!) else personsList =
+            if (!personsList.isNullOrEmpty())
+                personsList!!.addAll(data.results!!)
+            else personsList =
                 data.results
 
             popularPersonsAdapter.submitList(personsList)
