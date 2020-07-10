@@ -16,6 +16,7 @@ import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
 import com.esmaeel.moviesapp.databinding.ActivityPersonDetailsBinding
 import com.esmaeel.moviesapp.di.IMAGES_ADAPTER
 import com.esmaeel.moviesapp.di.PROFILE_IMAGE_BASE_URL
+import com.esmaeel.moviesapp.ui.FullImagePage.FullImageActivity
 import com.esmaeel.moviesapp.ui.PersonDetailsPage.Adapters.PersonsImagesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -62,7 +63,7 @@ class PersonDetailsActivity : AppCompatActivity() {
 
     private fun openImageInFullScreen(filePath: String?) {
         filePath?.let {
-            showSnackMessage(filePath,binder.root)
+            FullImageActivity.startActivity(this, filePath)
         }
     }
 

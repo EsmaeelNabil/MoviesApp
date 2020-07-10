@@ -88,16 +88,7 @@ object MyUtils {
         return knownForString.dropLast(2)
     }
 
-/*    fun getLoader(
-        activity: Activity
-    ): Dialog? {
-        val dialog = Dialog(activity)
-        val loader = LoaderLayoutBinding.inflate(LayoutInflater.from(activity))
-        dialog.setCancelable(false)
-        dialog.setContentView(loader.root)
-        dialog.getWindow()!!.setBackgroundDrawableResource(android.R.color.transparent)
-        dialog.getWindow()!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-        return dialog
-    }*/
+
+
 
 }

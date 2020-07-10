@@ -56,9 +56,23 @@ fun doSafely(success: () -> Unit, error: (message: String?) -> Unit) {
 
 fun FragmentActivity.showSnackMessage(message: String?, view: View) =
     message?.let {
-        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+            .show()
     }
 
+fun FragmentActivity.showSnackMessageWithAction(
+    message: String?,
+    view: View,
+    actionButton: String? = "",
+    function: () -> Unit?
+) =
+    message?.let {
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+            .setAction(actionButton) {
+                function.invoke()
+            }
+            .show()
+    }
 
 
 fun FragmentActivity.isNetworkAvailable(): Boolean {

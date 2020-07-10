@@ -10,6 +10,7 @@
     <color name="details_text_color">#424D8C</color>
     <color name="md_grey_100">#F5F5F5</color>
     <color name="md_grey_200">#F2F2F2</color>
+    <color name="md_grey_900">#262D50</color>
 
 
 </resources>
