@@ -86,8 +86,7 @@ class FullImageActivity : AppCompatActivity() {
         ) { map ->
             for (entry in map.entries) {
                 /*if at least one is not granted then ask again!*/
-                if (entry.value == false)
-                    canSave = false
+                canSave = entry.value != false
             }
         }
 
@@ -128,8 +127,8 @@ class FullImageActivity : AppCompatActivity() {
     /**
      * check for permission again , in case the user accepted them in settings.
      */
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         checkForPermissions()
     }
 
