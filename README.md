@@ -10,13 +10,12 @@ This App shows an infinite list of popular persons in the tv industry and some b
 * [Save images to Gallary.](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/Utils/ImageSaver.kt)
 
 ## Built with
-  - Kotlin
+  - Kotlin, [Extension Functions](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/Utils/Extensions.kt)
   - [Dagger-Hilt for dependency injection](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/main/java/com/esmaeel/moviesapp/di) -- [Docs](https://dagger.dev/hilt/)
   - MVVM architectural pattern
   - [Retrofit + OkHttp](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/di/NetworkModule.kt)
   - Coroutines + Flow
   - LiveData - ViewModels
-  - [Kotlin Extension Functions](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/Utils/Extensions.kt)
   - [Registering callbacks for an Activity Results](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/ui/PersonDetailsPage/PersonDetailsActivity.kt) -- [Docs](https://developer.android.com/training/basics/intents/result#register)
   - [Unit Tests, Mockito](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/test/java/com/esmaeel/moviesapp)
   - [Ui Testing , Espresso](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/androidTest/java/com/esmaeel/moviesapp)
