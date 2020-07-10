@@ -13,3 +13,12 @@ annotation class API_KEY
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class PROFILE_IMAGE_BASE_URL
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class IMAGES_ADAPTER
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class POPULAR_ADAPTER

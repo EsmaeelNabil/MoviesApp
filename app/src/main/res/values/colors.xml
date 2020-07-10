@@ -8,6 +8,8 @@
     <color name="status_bar_color">#03DAC5</color>
     <color name="white">#ffffff</color>
     <color name="details_text_color">#424D8C</color>
+    <color name="md_grey_100">#F5F5F5</color>
+    <color name="md_grey_200">#F2F2F2</color>
 
 
 </resources>

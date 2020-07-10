@@ -18,7 +18,7 @@ class PopularsViewModel @ViewModelInject constructor(
 
     private var _personsData: MutableLiveData<Contract<PopularPersonsResponse?>> = MutableLiveData()
 
-    var personsData: LiveData<Contract<PopularPersonsResponse?>> = MutableLiveData()
+    val personsData: LiveData<Contract<PopularPersonsResponse?>>
         get() = _personsData
 
 

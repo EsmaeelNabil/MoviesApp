@@ -8,12 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.esmaeel.moviesapp.R
-import com.esmaeel.moviesapp.Utils.Constants
-import com.esmaeel.moviesapp.Utils.EndlessRecyclerOnScrollListener
-import com.esmaeel.moviesapp.Utils.Status
-import com.esmaeel.moviesapp.Utils.showSnackMessage
+import com.esmaeel.moviesapp.Utils.*
 import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
 import com.esmaeel.moviesapp.databinding.ActivityPopularPersonsBinding
+import com.esmaeel.moviesapp.di.POPULAR_ADAPTER
+import com.esmaeel.moviesapp.ui.PersonDetailsPage.PersonDetailsActivity
 import com.esmaeel.moviesapp.ui.PopularPersonsPage.Adapter.PopularPersonsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -22,6 +21,7 @@ import javax.inject.Inject
 class PopularPersonsActivity : AppCompatActivity() {
 
     @Inject
+    @POPULAR_ADAPTER
     lateinit var popularPersonsAdapter: PopularPersonsAdapter
     private val viewModel: PopularsViewModel by viewModels()
     private lateinit var binder: ActivityPopularPersonsBinding
@@ -42,7 +42,9 @@ class PopularPersonsActivity : AppCompatActivity() {
 
 
     private fun requestPageNumber(pageNumber: Int) {
-        viewModel.getPersonsData(pageNumber)
+        if (isNetworkAvailable())
+            viewModel.getPersonsData(pageNumber)
+        else showSnackMessage(getString(R.string.network_error), binder.root)
     }
 
     private fun initViews() {
@@ -73,6 +75,10 @@ class PopularPersonsActivity : AppCompatActivity() {
 
         popularPersonsAdapter.clickEvent.observe(this, Observer {
             showSnackMessage(it.data.name!!, binder.root)
+            PersonDetailsActivity.startActivity(
+                context = this,
+                person = it.data
+            )
         })
 
 
@@ -109,11 +115,11 @@ class PopularPersonsActivity : AppCompatActivity() {
     }
 
 
-    fun showLoader() {
+    private fun showLoader() {
         binder.swipe.isRefreshing = true
     }
 
-    fun hideLoader() {
+    private fun hideLoader() {
         binder.swipe.isRefreshing = false
     }
 }

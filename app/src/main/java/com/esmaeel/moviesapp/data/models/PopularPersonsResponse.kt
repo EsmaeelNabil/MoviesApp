@@ -1,5 +1,7 @@
 package com.esmaeel.moviesapp.data.models
 
+import java.io.Serializable
+
 data class PopularPersonsResponse(
     val page: Int? = 0,
     val results: ArrayList<Result?>? = arrayListOf(),
@@ -19,7 +21,7 @@ data class PopularPersonsResponse(
         val name: String? = "",
         val popularity: Double? = 0.0,
         val profile_path: String? = ""
-    ) {
+    ) : Serializable {
         data class KnownFor(
             val adult: Boolean? = false,
             val backdrop_path: String? = "",
@@ -39,6 +41,6 @@ data class PopularPersonsResponse(
             val video: Boolean? = false,
             val vote_average: Double? = 0.0,
             val vote_count: Int? = 0
-        )
+        ): Serializable
     }
 }

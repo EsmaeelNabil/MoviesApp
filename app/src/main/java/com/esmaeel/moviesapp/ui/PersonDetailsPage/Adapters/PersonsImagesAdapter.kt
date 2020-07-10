@@ -1,4 +1,4 @@
-package com.esmaeel.moviesapp.ui.PopularPersonsPage.Adapter
+package com.esmaeel.moviesapp.ui.PersonDetailsPage.Adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,37 +10,37 @@ import coil.api.load
 import com.esmaeel.moviesapp.Utils.ViewEventsContract
 import com.esmaeel.moviesapp.Utils.buildProfilePath
 import com.esmaeel.moviesapp.Utils.combineClickListeners
-import com.esmaeel.moviesapp.data.models.PopularPersonsResponse
-import com.esmaeel.moviesapp.databinding.PersonRecyclerItemBinding
+import com.esmaeel.moviesapp.data.models.PersonsImagesResponse
+import com.esmaeel.moviesapp.databinding.PersonImagesRecyclerItemBinding
 import com.esmaeel.moviesapp.di.PROFILE_IMAGE_BASE_URL
 import javax.inject.Inject
 
-class PopularPersonsAdapter @Inject constructor(
+class PersonsImagesAdapter @Inject constructor(
     @PROFILE_IMAGE_BASE_URL val profileImageBaseUrl: String
 ) :
-    ListAdapter<PopularPersonsResponse.Result, PopularPersonsAdapter.PersonHolder>(
+    ListAdapter<PersonsImagesResponse.Profile, PersonsImagesAdapter.PersonHolder>(
         PopularPersonsDiffUtil
     ) {
 
-    val clickEvent: MutableLiveData<ViewEventsContract<PopularPersonsResponse.Result>> =
+    val clickEvent: MutableLiveData<ViewEventsContract<PersonsImagesResponse.Profile>> =
         MutableLiveData()
 
     private object PopularPersonsDiffUtil :
-        DiffUtil.ItemCallback<PopularPersonsResponse.Result>() {
+        DiffUtil.ItemCallback<PersonsImagesResponse.Profile>() {
         override fun areItemsTheSame(
-            oldItem: PopularPersonsResponse.Result,
-            newItem: PopularPersonsResponse.Result
+            oldItem: PersonsImagesResponse.Profile,
+            newItem: PersonsImagesResponse.Profile
         ) = oldItem == newItem
 
         override fun areContentsTheSame(
-            oldItem: PopularPersonsResponse.Result,
-            newItem: PopularPersonsResponse.Result
-        ) = oldItem.id == newItem.id
+            oldItem: PersonsImagesResponse.Profile,
+            newItem: PersonsImagesResponse.Profile
+        ) = oldItem.file_path == newItem.file_path
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonHolder {
         return PersonHolder(
-            PersonRecyclerItemBinding.inflate(
+            PersonImagesRecyclerItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -53,23 +53,18 @@ class PopularPersonsAdapter @Inject constructor(
     }
 
 
-    inner class PersonHolder(val binder: PersonRecyclerItemBinding) :
+    inner class PersonHolder(val binder: PersonImagesRecyclerItemBinding) :
         RecyclerView.ViewHolder(binder.root) {
-        fun bindViews(item: PopularPersonsResponse.Result) {
+        fun bindViews(item: PersonsImagesResponse.Profile) {
+            binder.image.load(item.file_path?.buildProfilePath(profileImageBaseUrl))
 
-
-            binder.personImage.load(item.profile_path?.buildProfilePath(profileImageBaseUrl))
-            binder.nameTextview.text = item.name
-
-
-            combineClickListeners(binder.root, binder.personImage, binder.nameTextview) {
+            combineClickListeners(binder.root, binder.image) {
                 clickEvent.value =
                     ViewEventsContract(
                         data = item,
                         position = absoluteAdapterPosition
                     )
             }
-
 
         }
     }

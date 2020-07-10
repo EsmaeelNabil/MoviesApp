@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoviesApp</string>
+    <string name="network_error">Check Your Internet Connection and try Again!</string>
+    <string name="images">images :</string>
 </resources>

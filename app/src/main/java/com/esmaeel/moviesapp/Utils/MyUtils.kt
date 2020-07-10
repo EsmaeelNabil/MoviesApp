@@ -12,6 +12,7 @@ import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.PrettyFormatStrategy
 import okhttp3.Request
 import okhttp3.ResponseBody
+import timber.log.Timber
 import java.util.*
 
 
@@ -74,15 +75,17 @@ object MyUtils {
     }
 
     // TODO: 7/9/20 test this
-    fun getAtleastFiveOf(knownFor: ArrayList<PopularPersonsResponse.Result.KnownFor?>?): String {
-        var knownForString = ""
+    fun getKnownFor(knownFor: ArrayList<PopularPersonsResponse.Result.KnownFor?>?): String {
+        var knownForString = "Known For : "
         knownFor?.let {
-            it.forEachIndexed { index, knownFor ->
-                if (index < 5)
-                    knownForString += " ${knownFor?.original_name}"
+            it.forEach { knownFor ->
+                if (knownFor?.original_title?.isNotEmpty()!!)
+                    knownForString += "${knownFor?.original_title}, "
             }
         }
-        return knownForString
+
+        Timber.e(knownForString)
+        return knownForString.dropLast(2)
     }
 
 /*    fun getLoader(
