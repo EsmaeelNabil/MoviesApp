@@ -19,6 +19,7 @@ This App shows an infinite list of popular persons in the tv industry and some b
   - [Kotlin Extension Functions](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/Utils/Extensions.kt)
   - [Registering callbacks for an Activity Results](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/ui/PersonDetailsPage/PersonDetailsActivity.kt) -- [Docs](https://developer.android.com/training/basics/intents/result#register)
   - [Unit Tests, Mockito](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/test/java/com/esmaeel/moviesapp)
+  - [Ui Testing , Espresso](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/androidTest/java/com/esmaeel/moviesapp)
  
 ## Possible Future work.
 * if the app gets bigger it might be better to do those this.
