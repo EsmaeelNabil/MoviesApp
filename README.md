@@ -1,6 +1,6 @@
 # MoviesApp
 
-This App show an infinite list of popular persons in the tv industry and some basic information about them with a list of profile images if availble.
+This App shows an infinite list of popular persons in the tv industry and some basic information about them with a list of profile images if availble.
 
 ## Feature
 * [View List of popular people with Pagination.](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/main/java/com/esmaeel/moviesapp/ui/PopularPersonsPage)
@@ -20,7 +20,7 @@ This App show an infinite list of popular persons in the tv industry and some ba
   - [Registering callbacks for an Activity Results](https://github.com/EsmaeelNabil/MoviesApp/blob/master/app/src/main/java/com/esmaeel/moviesapp/ui/PersonDetailsPage/PersonDetailsActivity.kt) -- [Docs](https://developer.android.com/training/basics/intents/result#register)
   - [Unit Tests, Mockito](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/test/java/com/esmaeel/moviesapp)
  
-## Possible Feature work.
+## Possible Future work.
 * if the app gets bigger it might be better to do those this.
 * Converting Activities into `Fragments` with one main activity or more depending on the scenarios.
 * Using `Navigation Component` with SafeArgs to handle Data communication between them.
