@@ -13,6 +13,6 @@ interface MoviesNetworkService {
     suspend fun getPopularPersons(@Query("page") pageNumber: Int): Response<PopularPersonsResponse>
 
     @GET("person/{person_id}/images")
-    suspend fun getPersonImages(@Path("person_id") personId: Int): Response<PersonsImagesResponse>
+    suspend fun getPersonImages(@Path("person_id") personId: Int?): Response<PersonsImagesResponse>
 
 }

@@ -10,7 +10,7 @@ class PersonDetailsRepository @Inject constructor(
     private val mService: MoviesNetworkService
 ) {
 
-    fun getPersonsImages(person_id: Int) = flow {
+    fun getPersonsImages(person_id: Int?) = flow {
         emit(Contract.onLoading(data = null))
         try {
             val response = mService.getPersonImages(personId = person_id)
