@@ -11,6 +11,8 @@
     <color name="md_grey_100">#F5F5F5</color>
     <color name="md_grey_200">#F2F2F2</color>
     <color name="md_grey_900">#262D50</color>
+    <color name="grey_text">#828282</color>
+    <color name="black">#000000</color>
 
 
 </resources>

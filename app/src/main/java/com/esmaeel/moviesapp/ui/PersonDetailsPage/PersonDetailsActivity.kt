@@ -47,10 +47,12 @@ class PersonDetailsActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        binder.backButton.setOnClickListener { finish() }
+        binder.backButton.setOnClickListener {
+            finish()
+        }
 
         binder.imagesRecycler.apply {
-            setHasFixedSize(true)
+            setHasFixedSize(false)
             layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             adapter = imagesAdapter
         }

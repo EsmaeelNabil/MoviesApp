@@ -74,7 +74,6 @@ class PopularPersonsActivity : AppCompatActivity() {
         }
 
         popularPersonsAdapter.clickEvent.observe(this, Observer {
-            showSnackMessage(it.data.name!!, binder.root)
             PersonDetailsActivity.startActivity(
                 context = this,
                 person = it.data
