@@ -1,8 +1,8 @@
 # MoviesApp
 
-This App shows an infinite list of popular persons in the tv industry and some basic information about them with a list of profile images if availble.
+This App shows an infinite list of popular people in the tv industry and some basic information about them with a list of profile images if availble.
 
-## Feature
+## Features
 * [View List of popular people with Pagination.](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/main/java/com/esmaeel/moviesapp/ui/PopularPersonsPage)
 * [View Person Details Page.](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/main/java/com/esmaeel/moviesapp/ui/PersonDetailsPage)
 * [Grid list of Person Images.](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/main/java/com/esmaeel/moviesapp/ui/PersonDetailsPage)
@@ -21,7 +21,7 @@ This App shows an infinite list of popular persons in the tv industry and some b
   - [Ui Testing , Espresso](https://github.com/EsmaeelNabil/MoviesApp/tree/master/app/src/androidTest/java/com/esmaeel/moviesapp)
  
 ## Possible Future work.
-* if the app gets bigger it might be better to do those this.
+* if the app gets bigger it might be better to do those things.
 * Converting Activities into `Fragments` with one main activity or more depending on the scenarios.
 * Using `Navigation Component` with SafeArgs to handle Data communication between them.
 * Adding a `BaseActivity` + `BaseFragments` with common functionalties.
