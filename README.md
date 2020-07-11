@@ -36,5 +36,10 @@ This App shows an infinite list of popular people in the tv industry and some ba
 
 
 
+![sample.gif](https://github.com/EsmaeelNabil/MoviesApp/blob/master/sample.gif)
+
+
+
+
 
 
