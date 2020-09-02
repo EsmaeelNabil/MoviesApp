@@ -19,7 +19,7 @@ fun combineClickListeners(vararg views: View, function: () -> Unit) {
 }
 
 fun TextView.GoneIfEmpty() {
-    print("FUCK" + this.text.toString())
+    print("FFFF" + this.text.toString())
     if (this.text.toString().isNullOrEmpty())
         this.Gone()
 }
