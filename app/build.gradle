@@ -47,7 +47,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha04'
 
     // androidx.test
-    def androidx_test = "1.1.1"
+    def androidx_test = "1.5.2"
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:core:1.2.0'
     androidTestImplementation "androidx.test:runner:$androidx_test"
