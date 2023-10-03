@@ -60,7 +60,7 @@ dependencies {
     androidTestImplementation 'org.mockito:mockito-android:2.7.22'
 
     // Espresso
-    def androidx_test_espresso = "3.2.0"
+    def androidx_test_espresso = "3.5.1"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
     implementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
