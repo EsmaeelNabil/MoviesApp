@@ -41,7 +41,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha04'
@@ -83,7 +83,7 @@ dependencies {
     implementation 'com.wang.avi:library:2.1.3'
 
     // Ktx
-    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.activity:activity-ktx:1.2.0-alpha06'
     implementation 'androidx.fragment:fragment-ktx:1.3.0-alpha06'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha05"
